@@ -1,0 +1,161 @@
+/* ===== Dashboard Container ===== */
+.dashboard-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  padding: 30px 40px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== Title ===== */
+.dashboard-title {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+/* ===== Form Structure ===== */
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ===== Section Headings ===== */
+.form-section h2 {
+  color: #34495e;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* ===== Input Grid ===== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+/* ===== Inputs ===== */
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 3px rgba(52,152,219,0.4);
+}
+
+/* ===== Nested Cards ===== */
+.nested-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+/* ===== Add Button ===== */
+.add-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+}
+
+.add-btn:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+/* ===== Submit Button ===== */
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+/* ===== Responsive Design ===== */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 992px) {
+  .dashboard-container {
+    padding: 25px 30px;
+    margin: 30px 20px;
+  }
+
+  .dashboard-title {
+    font-size: 24px;
+  }
+
+  .form-section h2 {
+    font-size: 18px;
+  }
+}
+
+/* Small Screens (Mobile ≤ 768px) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 25px 20px;
+  }
+
+  .dashboard-title {
+    font-size: 22px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 9px 10px;
+  }
+
+  .submit-btn {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* Extra Small Screens (≤ 480px) */
+@media (max-width: 480px) {
+  .dashboard-container {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+
+  .dashboard-title {
+    font-size: 20px;
+  }
+
+  .form-section h2 {
+    font-size: 16px;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+}
