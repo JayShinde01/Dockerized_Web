@@ -2,15 +2,14 @@ FROM node:20
 
 WORKDIR /app
 
-# Copy package files and install only production dependencies
 COPY package*.json ./
-RUN npm ci --only=production
 
-# Copy app source
+# Install production dependencies
+RUN npm install --omit=dev
+
 COPY . .
 
-# Expose port (optional, Render uses $PORT)
+# Use Render's dynamic port
 EXPOSE 5000
 
-# Start app (PORT will be read from env in code)
 CMD ["npm", "start"]
