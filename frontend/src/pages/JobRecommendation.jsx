@@ -15,6 +15,8 @@ export default function JobRecommendation() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
+      console.log(`${ML_API_URL}jobs?query=${query}&location=${location}`);
+      
       const response = await fetch(
         `${ML_API_URL}jobs?query=${query}&location=${location}`
       );

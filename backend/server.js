@@ -6,7 +6,16 @@ const connectDB = require("./config/db");
 const dotenv= require('dotenv')
 dotenv.config()
 connectDB();
-app.use(cors());
+// works both locally and on Render
+app.use(cors({
+  origin: [
+    "http://localhost:5173", 
+    "http://localhost:5174", 
+    "https://frontend-service-dockerized.onrender.com",
+    
+  ],
+}));
+
 app.use(express.json());
 
 // ROUTES
