@@ -1,36 +1,26 @@
-
 const express = require("express");
 const cors = require("cors");
-const app = express();
+const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-const dotenv= require('dotenv')
-dotenv.config()
-connectDB();
-// works both locally and on Render
-app.use(cors({
-  origin: [
-    "http://localhost:5173", 
-    "http://localhost:5174", 
-    "https://frontend-service-dockerized.onrender.com",
-    
-  ],
-}));
 
+dotenv.config();  // loads .env locally, safe to keep
+
+connectDB();
+
+const app = express();
+app.use(cors());
 app.use(express.json());
 
-// ROUTES
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/templates", require("./routes/templateRoutes"));
 app.use("/api/analyzer", require("./routes/analyzerRoutes"));
-app.use("/api/resume", require("./routes/fixRoutes"));   // PATCH only
-app.use("/api/resumes", require("./routes/resumeRoutes")); // CRUD only
+app.use("/api/resume", require("./routes/fixRoutes"));
+app.use("/api/resumes", require("./routes/resumeRoutes"));
 
-
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
-
-const PORT = process.env.PORT;
-app.listen(PORT, '0.0.0.0', () => {
+app.get("/", (req, res) => res.send("API is running..."));
+console.log("MONGO_URI:", process.env.MONGO_URI);
+console.log("PORT:", process.env.PORT);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
